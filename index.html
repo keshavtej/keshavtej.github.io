@@ -3,256 +3,112 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Keshav | System Reliability</title>
+    <title>Keshav | Systems & Reliability</title>
     <style>
-        :root {
-            --bg: #ffffff;
-            --text-main: #1d1d1f;
-            --text-muted: #86868b;
-            --accent: #0066cc;
-            --code-bg: #f5f5f7;
-            --border: #d2d2d7;
-        }
-
+        :root { --bg: #fff; --main: #1d1d1f; --muted: #424245; --light: #86868b; --accent: #0066cc; --code: #f5f5f7; --border: #d2d2d7; }
         * { box-sizing: border-box; -webkit-font-smoothing: antialiased; }
+        body { font-family: "Inter", -apple-system, sans-serif; background: var(--bg); color: var(--main); margin: 0; line-height: 1.6; letter-spacing: -0.01em; }
+        .container { max-width: 800px; margin: 0 auto; padding: 60px 24px; }
+        
+        header { display: flex; align-items: flex-start; justify-content: space-between; margin-bottom: 50px; }
+        .status { display: inline-flex; align-items: center; gap: 8px; font: 11px "SF Mono", monospace; background: var(--code); padding: 6px 12px; border-radius: 20px; color: var(--muted); border: 1px solid var(--border); margin-bottom: 20px; }
+        .dot { height: 7px; width: 7px; background: #28a745; border-radius: 50%; animation: pulse 2s infinite; }
+        @keyframes pulse { 0%, 100% { opacity: 1; } 50% { opacity: 0.4; } }
+        
+        h1 { font-size: 48px; font-weight: 700; letter-spacing: -0.05em; margin: 0 0 12px; line-height: 1.1; }
+        .hero-sub { font-size: 20px; color: var(--muted); max-width: 500px; }
+        .profile-img { width: 100px; height: 100px; border-radius: 22px; object-fit: cover; border: 1px solid var(--border); transition: 0.3s; flex-shrink: 0; }
+        .profile-img:hover { transform: translateY(-4px); }
 
-        body {
-            font-family: "Inter", -apple-system, BlinkMacSystemFont, sans-serif;
-            background-color: var(--bg);
-            color: var(--text-main);
-            margin: 0;
-            line-height: 1.6;
-        }
+        section { margin-bottom: 50px; }
+        h2 { font-size: 22px; font-weight: 600; margin-bottom: 20px; letter-spacing: -0.02em; }
+        .about-text { font-size: 17px; color: var(--muted); line-height: 1.8; }
+        
+        .skills { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 24px; }
+        .tag { display: flex; align-items: center; gap: 8px; font: 12px "SF Mono", monospace; background: #fff; padding: 8px 14px; border-radius: 10px; border: 1px solid var(--border); transition: 0.2s; cursor: default; }
+        .tag img { width: 18px; height: 18px; object-fit: contain; }
+        .tag:hover { border-color: var(--accent); transform: translateY(-2px); background: rgba(0, 102, 204, 0.06); color: var(--accent); }
 
-        .container {
-            max-width: 900px;
-            margin: 0 auto;
-            padding: 80px 24px;
-        }
+        .card { text-decoration: none; color: inherit; display: block; padding: 24px; border-radius: 18px; border: 1px solid var(--border); transition: 0.3s; margin-bottom: 16px; }
+        .card:hover { border-color: var(--accent); background: rgba(0, 102, 204, 0.06); transform: translateY(-2px); }
+        .label { font: 600 11px "SF Mono", monospace; color: var(--accent); text-transform: uppercase; display: block; margin-bottom: 8px; }
+        .grid { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
 
-        /* --- Header --- */
-        header {
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            gap: 40px;
-            margin-bottom: 40px;
-        }
-
-        .hero-text { flex: 1; }
-
-        .status-badge {
-            display: inline-flex;
-            align-items: center;
-            gap: 8px;
-            font-family: "SF Mono", monospace;
-            font-size: 13px;
-            background: var(--code-bg);
-            padding: 4px 12px;
-            border-radius: 20px;
-            color: var(--text-muted);
-            margin-bottom: 24px;
-        }
-
-        .dot { height: 8px; width: 8px; background-color: #28a745; border-radius: 50%; }
-
-        h1 {
-            font-size: 56px;
-            font-weight: 700;
-            letter-spacing: -0.03em;
-            line-height: 1.1;
-            margin: 0 0 20px 0;
-        }
-
-        .hero-sub { font-size: 24px; color: var(--text-muted); font-weight: 400; }
-        .hero-sub strong { color: var(--text-main); font-weight: 600; }
-
-        .linkedin-badge-container {
-            min-width: 250px;
-            display: flex;
-            justify-content: center;
-        }
-
-        /* --- About & Skills Section --- */
-        .about-section { margin-bottom: 20px; }
-        .about-section h2 { font-size: 28px; font-weight: 700; margin-bottom: 20px; }
-        .about-text { font-size: 18px; color: var(--text-muted); line-height: 1.8; max-width: 800px; }
-        .about-text p { margin-bottom: 20px; }
-
-        .skills-grid {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 12px;
-            margin-top: 30px;
-        }
-
-        .skill-tag {
-            font-family: "SF Mono", monospace;
-            font-size: 13px;
-            font-weight: 500;
-            background: var(--code-bg);
-            color: var(--text-main);
-            padding: 8px 16px;
-            border-radius: 10px;
-            border: 1px solid var(--border);
-            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-            cursor: default;
-        }
-
-        .skill-tag:hover {
-            background: #fff;
-            border-color: var(--accent);
-            color: var(--accent);
-            transform: translateY(-2px);
-            box-shadow: 0 4px 12px rgba(0, 102, 204, 0.1);
-        }
-
-        /* --- Projects --- */
-        .section-title { font-size: 28px; font-weight: 700; margin-bottom: 20px; }
-        .project-grid { display: grid; grid-template-columns: 1fr; gap: 20px; }
-        .project-card {
-            background: var(--code-bg);
-            padding: 40px;
-            border-radius: 24px;
-            border: 1px solid var(--border);
-            opacity: 0.8;
-            text-align: center;
-        }
-
-        .project-tag {
-            font-family: "SF Mono", monospace;
-            font-size: 11px;
-            color: var(--accent);
-            text-transform: uppercase;
-            margin-bottom: 10px;
-            display: block;
-        }
-
-        .project-card h3 { margin: 0 0 10px 0; font-size: 20px; }
-        .project-card p { font-size: 15px; color: var(--text-muted); margin: 0; }
-
-        /* --- Footer --- */
-        footer {
-            margin-top: 80px;
-            padding-top: 30px;
-            border-top: 1px solid var(--border);
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
-
-        .social-links { display: flex; gap: 24px; }
-        .social-link {
-            display: flex;
-            align-items: center;
-            gap: 8px;
-            text-decoration: none;
-            color: var(--text-muted) !important;
-            font-size: 13px;
-        }
-
-        .social-link img {
-            width: 14px;
-            height: 14px;
-            opacity: 0.8;
-            filter: none !important;
-            transition: all 0.2s ease;
-        }
-
-        .social-link:hover { color: var(--accent) !important; text-decoration: underline; }
-        .social-link:hover img { opacity: 1; }
-
-        @media (max-width: 768px) {
-            header { flex-direction: column-reverse; text-align: center; }
-            h1 { font-size: 42px; }
-            .linkedin-badge-container { min-width: 100%; }
-            footer { flex-direction: column-reverse; gap: 24px; align-items: flex-start; }
-        }
+        footer { margin-top: 60px; padding: 30px 0; border-top: 1px solid var(--border); display: flex; justify-content: space-between; align-items: center; }
+        .social { display: flex; gap: 18px; flex-wrap: wrap; }
+        .social-link { display: flex; align-items: center; gap: 6px; text-decoration: none; color: var(--light); font-size: 13px; font-weight: 500; }
+        .social-link img { width: 14px; height: 14px; opacity: 0.7; }
+        .social-link:hover { color: var(--accent); text-decoration: underline; text-underline-offset: 4px; }
+        
+        @media (max-width: 640px) { header, footer { flex-direction: column-reverse; gap: 24px; } .grid { grid-template-columns: 1fr; } h1 { font-size: 38px; } }
     </style>
 </head>
 <body>
-
     <div class="container">
         <header>
-            <div class="hero-text">
-                <div class="status-badge">
-                    <span class="dot"></span> system_status = online
-                </div>
+            <div class="hero">
+                <div class="status"><span class="dot"></span> system_status = online</div>
                 <h1>I'm Keshav.</h1>
-                <p class="hero-sub">
-                    <strong>Site Reliability Engineer</strong> at <strong>Copart</strong>.
-                </p>
+                <p class="hero-sub"><strong>Site Reliability Engineer</strong> at <strong>Copart</strong>.</p>
             </div>
-
-            <div class="linkedin-badge-container">
-                <div class="badge-base LI-profile-badge"
-                     data-locale="en_US" 
-                     data-size="large" 
-                     data-theme="light" 
-                     data-type="HORIZONTAL" 
-                     data-vanity="keshava-m-b928a699" 
-                     data-version="v1">
-                     <a class="badge-base__link LI-simple-link" href="https://in.linkedin.com/in/keshava-m-b928a699?trk=profile-badge"></a>
-                </div>
-            </div>
+            <img src="images/profile.jpg" alt="Keshav" class="profile-img">
         </header>
 
-        <section class="about-section">
+        <section id="about">
             <h2>About Me</h2>
             <div class="about-text">
-                <p>
-                    I am a <strong>Site Reliability Engineer at Copart</strong>, operating at the intersection of robust system administration and advanced site reliability engineering. My expertise lies in architecting resilient infrastructure and implementing SRE principles to ensure seamless, large-scale system performance.
-                </p>
-                <p>
-                    With a deep-rooted background in systems engineering, I focus on bridging the gap between traditional operations and modern reliability practices. I am passionate about driving operational excellence through automation, minimizing toil, and building scalable technology solutions that align with critical mission goals.
-                </p>
+                <p>I am a <strong>Site Reliability Engineer at Copart</strong>, operating at the intersection of robust system administration and advanced site reliability engineering. My expertise lies in architecting resilient infrastructure and implementing SRE principles to ensure seamless, large-scale system performance.</p>
+                <p>I focus on bridging the gap between traditional operations and modern reliability practices. I am passionate about driving operational excellence through automation and building scalable technology solutions.</p>
             </div>
-
-            <div class="skills-grid">
-                <span class="skill-tag">Linux</span>
-                <span class="skill-tag">Kubernetes</span>
-                <span class="skill-tag">Azure</span>
-                <span class="skill-tag">Python</span>
-                <span class="skill-tag">Terraform</span>
-                <span class="skill-tag">RabbitMQ</span>
-                <span class="skill-tag">Solr</span>
-                <span class="skill-tag">Zookeeper</span>
-                <span class="skill-tag">New Relic</span>
-                <span class="skill-tag">Git & GitHub</span>
+            <div class="skills">
+                <div class="tag"><img src="icons/linux.png" alt=""> Linux</div>
+                <div class="tag"><img src="icons/kubernetes.png" alt=""> Kubernetes</div>
+                <div class="tag"><img src="icons/docker.png" alt=""> Docker</div>
+                <div class="tag"><img src="icons/vmware.png" alt=""> VMware vCenter</div>
+                <div class="tag"><img src="icons/python.png" alt=""> Python</div>
+                <div class="tag"><img src="icons/terraform.png" alt=""> Terraform</div>
+                <div class="tag"><img src="icons/git.png" alt=""> Git & GitHub</div>
+                <div class="tag"><img src="icons/stackstorm.png" alt=""> StackStorm</div>
+                <div class="tag"><img src="icons/teams.png" alt=""> MS Teams</div>
             </div>
         </section>
 
-        <h2 class="section-title">Personal Projects</h2>
-        <div class="project-grid">
-            <div class="project-card">
-                <span class="project-tag">Coming Soon</span>
-                <h3>My Personal Blog</h3>
-                <p>A minimalist space built with HTML and GitHub Pages to document my journey in technology and systems engineering.</p>
+        <section id="work">
+            <h2>Featured Work</h2>
+            <a href="dissertation.html" class="card">
+                <span class="label">MTech Dissertation</span>
+                <h3 style="margin: 0 0 8px;">Auto-Remediation via StackStorm</h3>
+                <p style="color: var(--muted); font-size: 15px; margin: 0;">Automating incident response loops to heal services and reduce MTTR via event-driven workflows.</p>
+            </a>
+        </section>
+
+        <section id="community">
+            <h2>Community</h2>
+            <div class="grid">
+                <div class="card" style="margin: 0;">
+                    <span class="label">Volunteer</span>
+                    <h3 style="margin: 0 0 8px; font-size: 18px;">SRE Hyderabad & PyConf</h3>
+                    <p style="color: var(--muted); font-size: 14px; margin: 0;">Actively volunteering for local tech communities to organize sessions on automation and reliability.</p>
+                </div>
+                <div class="card" style="margin: 0;">
+                    <span class="label">Global Attendee</span>
+                    <h3 style="margin: 0 0 8px; font-size: 18px;">KubeCon 2025</h3>
+                    <p style="color: var(--muted); font-size: 14px; margin: 0;">Exploring the future of cloud-native infrastructure and hybrid-cloud connectivity.</p>
+                </div>
             </div>
-        </div>
+        </section>
 
         <footer>
-            <p style="font-size: 12px; color: var(--text-muted);">Copyright © 2026 Keshav. All rights reserved.</p>
-            <div class="social-links">
-                <a href="resume.pdf" class="social-link" target="_blank">
-                    <img src="icons/resume.png" alt=""> Resume
-                </a>
-                <a href="mailto:keshav.tej@email.com" class="social-link">
-                    <img src="icons/gmail.png" alt=""> Email
-                </a>
-                <a href="https://wa.me/918801080683" class="social-link">
-                    <img src="icons/whatsapp.png" alt=""> WhatsApp
-                </a>
-                <a href="https://linkedin.com/in/keshavtej" class="social-link">
-                    <img src="icons/linkedin.png" alt=""> LinkedIn
-                </a>
-                <a href="https://github.com/keshavtej" class="social-link">
-                    <img src="icons/github.png" alt=""> GitHub
-                </a>
+            <p style="font-size: 12px; color: var(--light);">© <span id="year"></span> Keshav. All rights reserved.</p>
+            <div class="social">
+                <a href="resume.pdf" class="social-link"><img src="icons/resume.png" alt=""> Resume</a>
+                <a href="mailto:keshav.tej@email.com" class="social-link"><img src="icons/gmail.png" alt=""> Email</a>
+                <a href="https://wa.me/918801080683" class="social-link" target="_blank"><img src="icons/whatsapp.png" alt=""> WhatsApp</a>
+                <a href="https://linkedin.com/in/keshava-m-b928a699" class="social-link" target="_blank"><img src="icons/linkedin.png" alt=""> LinkedIn</a>
+                <a href="https://github.com/keshavtej" class="social-link" target="_blank"><img src="icons/git.png" alt=""> GitHub</a>
             </div>
         </footer>
     </div>
-
-    <script src="https://platform.linkedin.com/badges/js/profile.js" async defer type="text/javascript"></script>
+    <script>document.getElementById('year').textContent = new Date().getFullYear();</script>
 </body>
 </html>
