@@ -7,40 +7,43 @@
     <style>
         :root { --bg: #fff; --main: #1d1d1f; --muted: #424245; --light: #86868b; --accent: #0066cc; --code: #f5f5f7; --border: #d2d2d7; }
         * { box-sizing: border-box; -webkit-font-smoothing: antialiased; }
-        body { font-family: "Inter", -apple-system, sans-serif; background: #fafafa; color: var(--main); margin: 0; line-height: 1.6; letter-spacing: -0.01em; }
-        .container { max-width: 950px; margin: 0 auto; padding: 100px 40px; background: var(--bg); min-height: 100vh; box-shadow: 0 0 40px rgba(0,0,0,0.02); }
+        body { font-family: "Inter", -apple-system, sans-serif; background: var(--bg); color: var(--main); margin: 0; line-height: 1.6; letter-spacing: -0.01em; }
+        .container { max-width: 800px; margin: 0 auto; padding: 60px 24px; }
         
-        header { display: flex; align-items: flex-start; justify-content: space-between; margin-bottom: 60px; }
+        header { display: flex; align-items: flex-start; justify-content: space-between; margin-bottom: 50px; }
+        /* Logo/Home Link Style */
+        .logo-link { text-decoration: none; color: inherit; }
+        
         .status { display: inline-flex; align-items: center; gap: 8px; font: 11px "SF Mono", monospace; background: var(--code); padding: 6px 12px; border-radius: 20px; color: var(--muted); border: 1px solid var(--border); margin-bottom: 20px; }
         .dot { height: 7px; width: 7px; background: #28a745; border-radius: 50%; animation: pulse 2s infinite; }
         @keyframes pulse { 0%, 100% { opacity: 1; } 50% { opacity: 0.4; } }
         
-        h1 { font-size: 56px; font-weight: 700; letter-spacing: -0.05em; margin: 0 0 12px; line-height: 1.1; }
-        .hero-sub { font-size: 22px; color: var(--muted); max-width: 600px; }
-        .profile-img { width: 120px; height: 120px; border-radius: 24px; object-fit: cover; border: 1px solid var(--border); transition: 0.3s; flex-shrink: 0; }
+        h1 { font-size: 48px; font-weight: 700; letter-spacing: -0.05em; margin: 0 0 12px; line-height: 1.1; }
+        .hero-sub { font-size: 20px; color: var(--muted); max-width: 500px; }
+        .profile-img { width: 100px; height: 100px; border-radius: 22px; object-fit: cover; border: 1px solid var(--border); transition: 0.3s; flex-shrink: 0; }
         .profile-img:hover { transform: translateY(-4px); }
 
-        section { margin-bottom: 60px; }
-        h2 { font-size: 24px; font-weight: 600; margin-bottom: 24px; border-bottom: 1px solid var(--code); padding-bottom: 10px; }
-        .about-text { font-size: 18px; color: var(--muted); line-height: 1.8; }
+        section { margin-bottom: 50px; }
+        h2 { font-size: 22px; font-weight: 600; margin-bottom: 20px; letter-spacing: -0.02em; }
+        .about-text { font-size: 17px; color: var(--muted); line-height: 1.8; }
         
-        .skills { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 24px; }
-        .tag { display: flex; align-items: center; gap: 8px; font: 12px "SF Mono", monospace; background: #fff; padding: 10px 16px; border-radius: 12px; border: 1px solid var(--border); transition: 0.2s; }
-        .tag img { width: 20px; height: 20px; object-fit: contain; }
+        .skills { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 24px; }
+        .tag { display: flex; align-items: center; gap: 8px; font: 12px "SF Mono", monospace; background: #fff; padding: 8px 14px; border-radius: 10px; border: 1px solid var(--border); transition: 0.2s; cursor: default; }
+        .tag img { width: 18px; height: 18px; object-fit: contain; }
         .tag:hover { border-color: var(--accent); transform: translateY(-2px); background: rgba(0, 102, 204, 0.06); color: var(--accent); }
 
-        .card { text-decoration: none; color: inherit; display: block; padding: 32px; border-radius: 20px; border: 1px solid var(--border); transition: 0.3s; margin-bottom: 20px; }
+        .card { text-decoration: none; color: inherit; display: block; padding: 24px; border-radius: 18px; border: 1px solid var(--border); transition: 0.3s; margin-bottom: 16px; }
         .card:hover { border-color: var(--accent); background: rgba(0, 102, 204, 0.06); transform: translateY(-2px); }
         .label { font: 600 11px "SF Mono", monospace; color: var(--accent); text-transform: uppercase; display: block; margin-bottom: 8px; }
-        .grid { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; }
+        .grid { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
 
-        footer { margin-top: 80px; padding: 40px 0; border-top: 1px solid var(--border); display: flex; justify-content: space-between; align-items: center; }
-        .social { display: flex; gap: 20px; flex-wrap: wrap; }
-        .social-link { display: flex; align-items: center; gap: 8px; text-decoration: none; color: var(--light); font-size: 14px; font-weight: 500; }
-        .social-link img { width: 16px; height: 16px; opacity: 0.7; }
+        footer { margin-top: 60px; padding: 30px 0; border-top: 1px solid var(--border); display: flex; justify-content: space-between; align-items: center; }
+        .social { display: flex; gap: 18px; flex-wrap: wrap; }
+        .social-link { display: flex; align-items: center; gap: 6px; text-decoration: none; color: var(--light); font-size: 13px; font-weight: 500; }
+        .social-link img { width: 14px; height: 14px; opacity: 0.7; }
         .social-link:hover { color: var(--accent); text-decoration: underline; text-underline-offset: 4px; }
         
-        @media (max-width: 768px) { .container { padding: 60px 24px; } h1 { font-size: 42px; } .grid { grid-template-columns: 1fr; } header, footer { flex-direction: column-reverse; gap: 30px; } }
+        @media (max-width: 640px) { header, footer { flex-direction: column-reverse; gap: 24px; } .grid { grid-template-columns: 1fr; } h1 { font-size: 38px; } }
     </style>
 </head>
 <body>
@@ -48,7 +51,7 @@
         <header>
             <div class="hero">
                 <div class="status"><span class="dot"></span> system_status = online</div>
-                <h1>I'm Keshav.</h1>
+                <a href="/" class="logo-link"><h1>I'm Keshav.</h1></a>
                 <p class="hero-sub"><strong>Site Reliability Engineer</strong> at <strong>Copart</strong>.</p>
             </div>
             <img src="images/profile.jpg" alt="Keshav" class="profile-img">
@@ -77,21 +80,29 @@
             <h2>Featured Work</h2>
             <a href="dissertation.html" class="card">
                 <span class="label">MTech Dissertation</span>
-                <h3 style="margin: 0 0 10px;">Auto-Remediation via StackStorm</h3>
-                <p style="color: var(--muted); font-size: 16px; margin: 0;">Automating incident response loops to heal services and reduce MTTR via event-driven workflows.</p>
+                <h3 style="margin: 0 0 8px;">Auto-Remediation via StackStorm</h3>
+                <p style="color: var(--muted); font-size: 15px; margin: 0;">Automating incident response loops to heal services and reduce MTTR via event-driven workflows.</p>
             </a>
         </section>
 
         <section id="community">
             <h2>Community</h2>
             <div class="grid">
-                <div class="card" style="margin: 0;"><span class="label">Volunteer</span><h3 style="margin: 0 0 8px; font-size: 20px;">SRE Hyderabad & PyConf</h3><p style="color: var(--muted); font-size: 15px; margin: 0;">Actively volunteering for local tech communities to organize sessions on reliability.</p></div>
-                <div class="card" style="margin: 0;"><span class="label">Global Attendee</span><h3 style="margin: 0 0 8px; font-size: 20px;">KubeCon 2025</h3><p style="color: var(--muted); font-size: 15px; margin: 0;">Exploring the future of cloud-native infrastructure and hybrid-cloud connectivity.</p></div>
+                <div class="card" style="margin: 0;">
+                    <span class="label">Volunteer</span>
+                    <h3 style="margin: 0 0 8px; font-size: 18px;">SRE Hyderabad & PyConf</h3>
+                    <p style="color: var(--muted); font-size: 14px; margin: 0;">Actively volunteering for local tech communities to organize sessions on automation and reliability.</p>
+                </div>
+                <div class="card" style="margin: 0;">
+                    <span class="label">Global Attendee</span>
+                    <h3 style="margin: 0 0 8px; font-size: 18px;">KubeCon 2025</h3>
+                    <p style="color: var(--muted); font-size: 14px; margin: 0;">Exploring the future of cloud-native infrastructure and hybrid-cloud connectivity.</p>
+                </div>
             </div>
         </section>
 
         <footer>
-            <p style="font-size: 13px; color: var(--light);">© <span id="year"></span> Keshav. All rights reserved.</p>
+            <p style="font-size: 12px; color: var(--light);">© <span id="year"></span> Keshav. All rights reserved.</p>
             <div class="social">
                 <a href="resume.pdf" class="social-link"><img src="icons/resume.png" alt=""> Resume</a>
                 <a href="mailto:keshav.tej@email.com" class="social-link"><img src="icons/gmail.png" alt=""> Email</a>
