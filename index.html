@@ -1,117 +1,151 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Keshav | Systems & Reliability</title>
-    <style>
-        :root { --bg: #fff; --main: #1d1d1f; --muted: #424245; --light: #86868b; --accent: #0066cc; --code: #f5f5f7; --border: #d2d2d7; }
-        * { box-sizing: border-box; -webkit-font-smoothing: antialiased; }
-        body { font-family: "Inter", -apple-system, sans-serif; background: var(--bg); color: var(--main); margin: 0; line-height: 1.6; letter-spacing: -0.01em; }
-        .container { max-width: 800px; margin: 0 auto; padding: 60px 24px; }
-        
-        header { display: flex; align-items: flex-start; justify-content: space-between; margin-bottom: 50px; }
-        /* Logo/Home Link Style */
-        .logo-link { text-decoration: none; color: inherit; }
-        
-        .status { display: inline-flex; align-items: center; gap: 8px; font: 11px "SF Mono", monospace; background: var(--code); padding: 6px 12px; border-radius: 20px; color: var(--muted); border: 1px solid var(--border); margin-bottom: 20px; }
-        .dot { height: 7px; width: 7px; background: #28a745; border-radius: 50%; animation: pulse 2s infinite; }
-        @keyframes pulse { 0%, 100% { opacity: 1; } 50% { opacity: 0.4; } }
-        
-        h1 { font-size: 48px; font-weight: 700; letter-spacing: -0.05em; margin: 0 0 12px; line-height: 1.1; }
-        .hero-sub { font-size: 20px; color: var(--muted); max-width: 500px; }
-        .profile-img { width: 100px; height: 100px; border-radius: 22px; object-fit: cover; border: 1px solid var(--border); transition: 0.3s; flex-shrink: 0; }
-        .profile-img:hover { transform: translateY(-4px); }
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Keshav | Systems & Reliability</title>
+<style>
+:root { --bg: #fff; --main: #1d1d1f; --muted: #424245; --light: #86868b; --accent: #0066cc; --code: #f5f5f7; --border: rgba(0,0,0,0.1); }
+* { box-sizing: border-box; -webkit-font-smoothing: antialiased; }
 
-        section { margin-bottom: 50px; }
-        h2 { font-size: 22px; font-weight: 600; margin-bottom: 20px; letter-spacing: -0.02em; }
-        .about-text { font-size: 17px; color: var(--muted); line-height: 1.8; }
-        
-        .skills { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 24px; }
-        .tag { display: flex; align-items: center; gap: 8px; font: 12px "SF Mono", monospace; background: #fff; padding: 8px 14px; border-radius: 10px; border: 1px solid var(--border); transition: 0.2s; cursor: default; }
-        .tag img { width: 18px; height: 18px; object-fit: contain; }
-        .tag:hover { border-color: var(--accent); transform: translateY(-2px); background: rgba(0, 102, 204, 0.06); color: var(--accent); }
+body { 
+    font-family: "Inter", -apple-system, sans-serif; 
+    background-color: var(--bg); 
+    color: var(--main); 
+    margin: 0; 
+    line-height: 1.6; 
+    letter-spacing: -0.01em;
+    min-height: 100vh;
 
-        .card { text-decoration: none; color: inherit; display: block; padding: 24px; border-radius: 18px; border: 1px solid var(--border); transition: 0.3s; margin-bottom: 16px; }
-        .card:hover { border-color: var(--accent); background: rgba(0, 102, 204, 0.06); transform: translateY(-2px); }
-        .label { font: 600 11px "SF Mono", monospace; color: var(--accent); text-transform: uppercase; display: block; margin-bottom: 8px; }
-        .grid { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+    /* --- ZOOMED BACKGROUND --- */
+    background-image: url('images/background.png');
+    background-repeat: no-repeat;
+    background-position: 30% center;
+    background-size: 120%; 
+    background-attachment: fixed;
+}
 
-        footer { margin-top: 60px; padding: 30px 0; border-top: 1px solid var(--border); display: flex; justify-content: space-between; align-items: center; }
-        .social { display: flex; gap: 18px; flex-wrap: wrap; }
-        .social-link { display: flex; align-items: center; gap: 6px; text-decoration: none; color: var(--light); font-size: 13px; font-weight: 500; }
-        .social-link img { width: 14px; height: 14px; opacity: 0.7; }
-        .social-link:hover { color: var(--accent); text-decoration: underline; text-underline-offset: 4px; }
-        
-        @media (max-width: 640px) { header, footer { flex-direction: column-reverse; gap: 24px; } .grid { grid-template-columns: 1fr; } h1 { font-size: 38px; } }
-    </style>
+/* NO CARD LOOK: Removed background, border, and backdrop-filter */
+.container { 
+    max-width: 800px; 
+    margin: 0 auto; 
+    padding: 80px 24px; 
+    /* Merged with background */
+}
+
+header { display: flex; align-items: flex-start; justify-content: space-between; margin-bottom: 50px; }
+.logo-link { text-decoration: none; color: inherit; }
+.status { display: inline-flex; align-items: center; gap: 8px; font: 11px "SF Mono", monospace; background: rgba(0,0,0,0.05); padding: 6px 12px; border-radius: 20px; color: var(--muted); border: 1px solid var(--border); margin-bottom: 20px; }
+.dot { height: 7px; width: 7px; background: #28a745; border-radius: 50%; animation: pulse 2s infinite; }
+@keyframes pulse { 0%, 100% { opacity: 1; } 50% { opacity: 0.4; } }
+
+h1 { font-size: 48px; font-weight: 700; letter-spacing: -0.05em; margin: 0 0 12px; line-height: 1.1; }
+.hero-sub { font-size: 20px; color: var(--muted); max-width: 500px; }
+.profile-img { width: 100px; height: 100px; border-radius: 22px; object-fit: cover; border: 1px solid var(--border); transition: 0.3s; flex-shrink: 0; }
+.profile-img:hover { transform: translateY(-4px); }
+
+section { margin-bottom: 50px; }
+h2 { font-size: 22px; font-weight: 600; margin-bottom: 20px; letter-spacing: -0.02em; }
+.about-text { font-size: 17px; color: var(--muted); line-height: 1.8; }
+
+.skills { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 24px; }
+.tag { display: flex; align-items: center; gap: 8px; font: 12px "SF Mono", monospace; background: rgba(255,255,255,0.5); padding: 8px 14px; border-radius: 10px; border: 1px solid var(--border); transition: 0.2s; cursor: default; }
+.tag img { width: 18px; height: 18px; object-fit: contain; }
+.tag:hover { border-color: var(--accent); transform: translateY(-2px); background: #fff; color: var(--accent); }
+
+/* MERGED CARDS: Removed white box and border */
+.card { 
+    text-decoration: none; color: inherit; display: block; 
+    padding: 24px 0; /* Padding only on top/bottom */
+    border-bottom: 1px solid var(--border); /* Simple line instead of a box */
+    transition: 0.3s; 
+    margin-bottom: 16px; 
+}
+.card:hover { padding-left: 10px; color: var(--accent); }
+.label { font: 600 11px "SF Mono", monospace; color: var(--accent); text-transform: uppercase; display: block; margin-bottom: 8px; }
+
+.grid { display: grid; grid-template-columns: 1fr 1fr; gap: 32px; }
+
+footer { margin-top: 60px; padding: 30px 0; border-top: 1px solid var(--border); display: flex; justify-content: space-between; align-items: center; }
+.social { display: flex; gap: 18px; flex-wrap: wrap; }
+.social-link { display: flex; align-items: center; gap: 6px; text-decoration: none; color: var(--light); font-size: 13px; font-weight: 500; }
+.social-link img { width: 14px; height: 14px; opacity: 0.7; }
+.social-link:hover { color: var(--accent); text-decoration: underline; text-underline-offset: 4px; }
+
+@media (max-width: 640px) { 
+    header, footer { flex-direction: column-reverse; gap: 24px; } 
+    .grid { grid-template-columns: 1fr; gap: 0; } 
+    h1 { font-size: 38px; } 
+    body { background-size: 250%; }
+}
+</style>
 </head>
 <body>
-    <div class="container">
-        <header>
-            <div class="hero">
-                <div class="status"><span class="dot"></span> system_status = online</div>
-                <a href="/" class="logo-link"><h1>I'm Keshav.</h1></a>
-                <p class="hero-sub"><strong>Site Reliability Engineer</strong> at <strong>Copart</strong>.</p>
-            </div>
-            <img src="images/profile.jpg" alt="Keshav" class="profile-img">
-        </header>
+<div class="container">
+<header>
+<div class="hero">
+<div class="status"><span class="dot"></span> system_status = online</div>
+<a href="/" class="logo-link"><h1>I'm Keshav.</h1></a>
+<p class="hero-sub"><strong>Site Reliability Engineer</strong> at <strong>Copart</strong>.</p>
+</div>
+<img src="images/profile.jpg" alt="Keshav" class="profile-img">
+</header>
 
-        <section id="about">
-            <h2>About Me</h2>
-            <div class="about-text">
-                <p>I am a <strong>Site Reliability Engineer at Copart</strong>, operating at the intersection of robust system administration and advanced site reliability engineering. My expertise lies in architecting resilient infrastructure and implementing SRE principles to ensure seamless, large-scale system performance.</p>
-                <p>I focus on bridging the gap between traditional operations and modern reliability practices. I am passionate about driving operational excellence through automation and building scalable technology solutions.</p>
-            </div>
-            <div class="skills">
-                <div class="tag"><img src="icons/linux.png" alt=""> Linux</div>
-                <div class="tag"><img src="icons/kubernetes.png" alt=""> Kubernetes</div>
-                <div class="tag"><img src="icons/docker.png" alt=""> Docker</div>
-                <div class="tag"><img src="icons/vmware.png" alt=""> VMware vCenter</div>
-                <div class="tag"><img src="icons/python.png" alt=""> Python</div>
-                <div class="tag"><img src="icons/terraform.png" alt=""> Terraform</div>
-                <div class="tag"><img src="icons/git.png" alt=""> Git & GitHub</div>
-                <div class="tag"><img src="icons/stackstorm.png" alt=""> StackStorm</div>
-                <div class="tag"><img src="icons/teams.png" alt=""> MS Teams</div>
-            </div>
-        </section>
+<section id="about">
+<h2>About Me</h2>
+<div class="about-text">
+<p>I am a <strong>Site Reliability Engineer at Copart</strong>, operating at the intersection of robust system administration and advanced site reliability engineering. My expertise lies in architecting resilient infrastructure and implementing SRE principles to ensure seamless, large-scale system performance.</p>
+<p>I focus on bridging the gap between traditional operations and modern reliability practices. I am passionate about driving operational excellence through automation and building scalable technology solutions.</p>
+</div>
+<div class="skills">
+<div class="tag"><img src="icons/linux.png" alt=""> Linux</div>
+<div class="tag"><img src="icons/kubernetes.png" alt=""> Kubernetes</div>
+<div class="tag"><img src="icons/docker.png" alt=""> Docker</div>
+<div class="tag"><img src="icons/vmware.png" alt=""> VMware vCenter</div>
+<div class="tag"><img src="icons/python.png" alt=""> Python</div>
+<div class="tag"><img src="icons/terraform.png" alt=""> Terraform</div>
+<div class="tag"><img src="icons/git.png" alt=""> Git & GitHub</div>
+<div class="tag"><img src="icons/stackstorm.png" alt=""> StackStorm</div>
+<div class="tag"><img src="icons/teams.png" alt=""> MS Teams</div>
+</div>
+</section>
 
-        <section id="work">
-            <h2>Featured Work</h2>
-            <a href="dissertation.html" class="card">
-                <span class="label">MTech Dissertation</span>
-                <h3 style="margin: 0 0 8px;">Auto-Remediation via StackStorm</h3>
-                <p style="color: var(--muted); font-size: 15px; margin: 0;">Automating incident response loops to heal services and reduce MTTR via event-driven workflows.</p>
-            </a>
-        </section>
+<section id="work">
+<h2>Featured Work</h2>
+<a href="dissertation.html" class="card">
+<span class="label">MTech Dissertation</span>
+<h3 style="margin: 0 0 8px;">Auto-Remediation via StackStorm</h3>
+<p style="color: var(--muted); font-size: 15px; margin: 0;">Automating incident response loops to heal services and reduce MTTR via event-driven workflows.</p>
+</a>
+</section>
 
-        <section id="community">
-            <h2>Community</h2>
-            <div class="grid">
-                <div class="card" style="margin: 0;">
-                    <span class="label">Volunteer</span>
-                    <h3 style="margin: 0 0 8px; font-size: 18px;">SRE Hyderabad & PyConf</h3>
-                    <p style="color: var(--muted); font-size: 14px; margin: 0;">Actively volunteering for local tech communities to organize sessions on automation and reliability.</p>
-                </div>
-                <div class="card" style="margin: 0;">
-                    <span class="label">Global Attendee</span>
-                    <h3 style="margin: 0 0 8px; font-size: 18px;">KubeCon 2025</h3>
-                    <p style="color: var(--muted); font-size: 14px; margin: 0;">Exploring the future of cloud-native infrastructure and hybrid-cloud connectivity.</p>
-                </div>
-            </div>
-        </section>
+<section id="community">
+<h2>Community</h2>
+<div class="grid">
+<a href="#" class="card" style="margin: 0;">
+<span class="label">Volunteer</span>
+<h3 style="margin: 0 0 8px; font-size: 18px;">SRE Hyderabad & PyConf</h3>
+<p style="color: var(--muted); font-size: 14px; margin: 0;">Actively volunteering for local tech communities to organize sessions on automation and reliability.</p>
+</a>
+<a href="#" class="card" style="margin: 0;">
+<span class="label">Global Attendee</span>
+<h3 style="margin: 0 0 8px; font-size: 18px;">KubeCon 2025</h3>
+<p style="color: var(--muted); font-size: 14px; margin: 0;">Exploring the future of cloud-native infrastructure and hybrid-cloud connectivity.</p>
+</a>
+</div>
+</section>
 
-        <footer>
-            <p style="font-size: 12px; color: var(--light);">© <span id="year"></span> Keshav. All rights reserved.</p>
-            <div class="social">
-                <a href="resume.pdf" class="social-link"><img src="icons/resume.png" alt=""> Resume</a>
-                <a href="mailto:keshav.tej@email.com" class="social-link"><img src="icons/gmail.png" alt=""> Email</a>
-                <a href="https://wa.me/918801080683" class="social-link" target="_blank"><img src="icons/whatsapp.png" alt=""> WhatsApp</a>
-                <a href="https://linkedin.com/in/keshava-m-b928a699" class="social-link" target="_blank"><img src="icons/linkedin.png" alt=""> LinkedIn</a>
-                <a href="https://github.com/keshavtej" class="social-link" target="_blank"><img src="icons/git.png" alt=""> GitHub</a>
-            </div>
-        </footer>
-    </div>
-    <script>document.getElementById('year').textContent = new Date().getFullYear();</script>
+<footer>
+<p style="font-size: 12px; color: var(--light);">© <span id="year"></span> Keshav. All rights reserved.</p>
+<div class="social">
+<a href="./resume.pdf" class="social-link"><img src="icons/resume.png" alt=""> Resume</a>
+<a href="mailto:keshav.tej@email.com" class="social-link"><img src="icons/gmail.png" alt=""> Email</a>
+<a href="https://wa.me/918801080683" class="social-link" target="_blank"><img src="icons/whatsapp.png" alt=""> WhatsApp</a>
+<a href="https://linkedin.com/in/keshava-m-b928a699" class="social-link" target="_blank"><img src="icons/linkedin.png" alt=""> LinkedIn</a>
+<a href="https://github.com/keshavtej" class="social-link" target="_blank"><img src="icons/git.png" alt=""> GitHub</a>
+</div>
+</footer>
+</div>
+<script>document.getElementById('year').textContent = new Date().getFullYear();</script>
 </body>
 </html>
